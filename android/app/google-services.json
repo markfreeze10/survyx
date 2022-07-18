@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "412882559770",
+    "project_id": "umfragen-app-7cf91",
+    "storage_bucket": "umfragen-app-7cf91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412882559770:android:43fca9bd3c35645d0642a3",
+        "android_client_info": {
+          "package_name": "com.example.umfrage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412882559770-167vhce79pdi5mp0skir0p2b4cma8st5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdKi3hd--kCZwv7DuOMPUF6DJuP1occmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412882559770-167vhce79pdi5mp0skir0p2b4cma8st5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "412882559770-3btcfgo2c9rmatk06pr1esrgntkbd4pa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.umfrage"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
