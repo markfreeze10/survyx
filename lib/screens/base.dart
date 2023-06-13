@@ -72,24 +72,29 @@ class _BaseScreenState extends State<BaseScreen> {
                 Padding(
                     padding: EdgeInsets.only(
                         top: 0, left: 0, right: 0, bottom: 0),
-                    child: FlatButton(onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsBase()));
-                    },
-                         /*ButtonStyle(backgroundColor: MaterialStateProperty.all(Color(0xff2D2D2D)),
-                        shadowColor: MaterialStateProperty.all(Color(0xff2D2D2D)),
-                            overlayColor: MaterialStateProperty.all(Color(0xff2D2D2D)),
-                        foregroundColor: MaterialStateProperty.all(Color(0xff2D2D2D)))*/
-                    child: GradientIcon(
-                      CupertinoIcons.settings,
-                      30.0,
-                      LinearGradient(
-                        colors: <Color>[
-                          Color(0xff34D1C2), Color(0xff4D7DDC)
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsBase()));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xff2D2D2D),
+                        ),
+                        padding: EdgeInsets.all(10.0),
+                        child: GradientIcon(
+                          CupertinoIcons.settings,
+                          30.0,
+                          LinearGradient(
+                            colors: <Color>[
+                              Color(0xff34D1C2), Color(0xff4D7DDC)
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
                       ),
-                    )))
+                    ))
                 ]),
               Padding(
             padding: EdgeInsets.only(
@@ -171,35 +176,51 @@ class _BaseScreenState extends State<BaseScreen> {
                       top: 20, left: 0, right: 20, bottom: 30),
                   child: Container(
                     height: 70.0,
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const CreatingSiteBase()));
-                      },
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
-                      padding: EdgeInsets.all(0.0),
-                      child: Ink(
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [Color(0xff34D1C2), Color(0xff4D7DDC)],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            borderRadius: BorderRadius.circular(14.0)
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Color(0xff34D1C2), Color(0xff4D7DDC)],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(14.0),
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const CreatingSiteBase()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
+                          padding: EdgeInsets.zero, // Entferne das interne Padding des ElevatedButton
+                          primary: Colors.transparent, // Setze die Hintergrundfarbe des ElevatedButton auf transparent
+                          elevation: 0, // Entferne den Schatten des ElevatedButton
                         ),
                         child: Container(
-                          //constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
-                          alignment: Alignment.center,
-                          child: Row(children: [
-                            Padding(padding: EdgeInsets.only(
-                                top: 0, left: 20, right: 0, bottom: 0), child: Icon(Icons.add,
-                            color: Colors.white,
-                            size: 30)),
-                            Expanded(child:ListTile(
-                              title: Text("Neue Umfrage erstellen",
-                                  style: TextStyle(color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold)),
-                              ))]
-                      ))))))])));
+                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.add,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                              SizedBox(width: 10), // Füge einen Abstand zwischen Icon und Text hinzu
+                              Expanded(
+                                child: Text(
+                                  "Neue Umfrage erstellen",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ))])));
             })));
   }
 }

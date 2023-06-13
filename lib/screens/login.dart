@@ -100,12 +100,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
     final loginButton = Container(
       height: 50.0,
-      child: RaisedButton(
+      child: ElevatedButton(
         onPressed: () {
           signIn(loginEmailController.text, loginPasswordController.text);
         },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60.0)),
-        padding: EdgeInsets.all(0.0),
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60.0)),
+        ),
         child: Ink(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [Color(0xff34D1C2), Color(0xff4D7DDC)],
@@ -132,13 +133,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
     final registrationButton = Container(
       height: 50.0,
-      child: RaisedButton(
+      child: ElevatedButton(
         onPressed: () {
           signUp(loginEmailController.text, loginPasswordController.text);
 
         },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-        padding: EdgeInsets.all(0.0),
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+        ),
         child: Ink(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [Color(0xff4C5051), Color(0xff4C5051)],
@@ -324,12 +326,11 @@ class _LoginScreenState extends State<LoginScreen> {
       FirebaseFirestore.instance.collection("participation").doc(user!.uid).collection('answerList').doc('hi').set({});
       FirebaseFirestore.instance.collection("participation").doc(user!.uid).collection('answerList').doc('hi').delete();
       FirebaseFirestore.instance.collection("participation").doc(user.uid).set({'surveyID': list});
-      FirebaseFirestore.instance.collection("email").doc(user.email).set({});
-
+      FirebaseFirestore.instance.collection('email').doc('emailMap').set({user.email.toString(): user.uid},SetOptions(merge: true)).then((value){
+        //Do your stuff.
+      });
 
       }
-
-
 
   }
 

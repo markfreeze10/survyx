@@ -184,12 +184,12 @@ class _CreatedSurveyOverviewState extends State<CreatedSurveyOverview> {
                                           children: [Text(snapshot.data.toString(),
                                               textAlign: TextAlign.center,
                                               style: TextStyle(color: Colors.white,
-                                                  fontSize: 40,
+                                                  fontSize: 35,
                                                   fontWeight: FontWeight.bold)),
                                             Text("\nFragen",
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(color: Colors.white,
-                                                    fontSize: 16))],
+                                                    fontSize: 14))],
                                         );},
                                     ))),
                                 Container(height: hSize*0.17, width: hSize*0.17,child: Ink(
@@ -211,12 +211,12 @@ class _CreatedSurveyOverviewState extends State<CreatedSurveyOverview> {
                                           children: [Text(snapshot.data!.toString(),
                                               textAlign: TextAlign.center,
                                               style: TextStyle(color: Colors.white,
-                                                  fontSize: 40,
+                                                  fontSize: 35,
                                                   fontWeight: FontWeight.bold)),
                                             Text("\nTeilnehmer",
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(color: Colors.white,
-                                                    fontSize: 16))],
+                                                    fontSize: 14))],
                                         );
                                       },
                                     ))),
@@ -245,12 +245,12 @@ class _CreatedSurveyOverviewState extends State<CreatedSurveyOverview> {
                                             children: [Text(snapshot.data.toString(),
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(color: Colors.white,
-                                                    fontSize: 40,
+                                                    fontSize: 35,
                                                     fontWeight: FontWeight.bold)),
                                               Text("\ngestartet",
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(color: Colors.white,
-                                                      fontSize: 16))],
+                                                      fontSize: 14))],
                                           );},
                                       ))),
                                   Container(height: hSize*0.17, width: hSize*0.17,child: Ink(
@@ -272,12 +272,12 @@ class _CreatedSurveyOverviewState extends State<CreatedSurveyOverview> {
                                             children: [Text(snapshot.data.toString(),
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(color: Colors.white,
-                                                    fontSize: 40,
+                                                    fontSize: 35,
                                                     fontWeight: FontWeight.bold)),
                                               Text("\nabgeschlossen",
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(color: Colors.white,
-                                                      fontSize: 16))],
+                                                      fontSize: 14))],
                                           );},
                                       ))),
                                 ]),
@@ -389,7 +389,7 @@ class _CreatedSurveyOverviewState extends State<CreatedSurveyOverview> {
                                             SizedBox(
                                                 height: 40,
                                                 width: wSize*0.9,
-                                                child: RaisedButton(
+                                                child: ElevatedButton(
                                                     onPressed: () {
                                                       if (_formKey.currentState!.validate()) {
                                                         var survey = [];
@@ -432,8 +432,9 @@ class _CreatedSurveyOverviewState extends State<CreatedSurveyOverview> {
                                                         Navigator.pop(context, 'Cancel');
                                                       }
                                                     },
-                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-                                                    padding: EdgeInsets.all(0.0),
+                                                    style: ElevatedButton.styleFrom(
+                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+                                                    ),
                                                     child: Ink(
                                                         height: 40,
                                                         width: wSize*0.95,

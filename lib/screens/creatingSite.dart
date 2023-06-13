@@ -101,36 +101,41 @@ class _CreatingSiteBaseState extends State<CreatingSiteBase> {
                                   width: 120,
                                   //width: MediaQuery.of(context).size.width,
                                   // ignore: deprecated_member_use
-                                  child: RaisedButton(
-                                      onPressed: () {
-                                        if (_formKey.currentState!.validate()) {
-                                          DatabaseService().addSurvey(questionControllerList, answerControllerList, surveyNameController.text, descriptionController.text, questionMap, auth, user!);
-                                          Navigator.push(context, MaterialPageRoute(builder: (context) => const BaseScreen()));
+                                  child: Ink(
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(colors: [Color(0xff34D1C2), Color(0xff4D7DDC)],
+                                          begin: Alignment.centerLeft,
+                                          end: Alignment.centerRight,
+                                        ),
+                                        borderRadius: BorderRadius.circular(8.0)
+                                    ),
+                                    child: ElevatedButton(
+                                        onPressed: () {
+                                          if (_formKey.currentState!.validate()) {
+                                            DatabaseService().addSurvey(questionControllerList, answerControllerList, surveyNameController.text, descriptionController.text, questionMap, auth, user!);
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const BaseScreen()));
+                                          }
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
+                                          primary: Colors.transparent, // Setze die Hintergrundfarbe des ElevatedButton auf transparent
+                                          padding: EdgeInsets.zero,
+                                          elevation: 0,
+                                        ),
 
-                                        }
-                                      },
-                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Ink(
-                                          decoration: BoxDecoration(
-                                              gradient: LinearGradient(colors: [Color(0xff34D1C2), Color(0xff4D7DDC)],
-                                                begin: Alignment.centerLeft,
-                                                end: Alignment.centerRight,
-                                              ),
-                                              borderRadius: BorderRadius.circular(8.0)
-                                          ),
-                                          child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Icon(Icons.add,
-                                                    color: Colors.white,
-                                                    size: 15),
-                                                Align(
-                                                  child: Text("Speichern",
-                                                      style: TextStyle(color: Colors.white,
-                                                          fontSize: 13)),
-                                                )]
-                                          )))),
+                                            child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(Icons.add,
+                                                      color: Colors.white,
+                                                      size: 15),
+                                                  Align(
+                                                    child: Text("Speichern",
+                                                        style: TextStyle(color: Colors.white,
+                                                            fontSize: 13)),
+                                                  )]
+                                            )),
+                                  )),
                             ),
                         ])),
                             //Umfragenname
@@ -291,15 +296,19 @@ class _CreatingSiteBaseState extends State<CreatingSiteBase> {
           height: 30,
           width: MediaQuery.of(context).size.width,
         // ignore: deprecated_member_use
-        child: RaisedButton(
+        child: ElevatedButton(
             onPressed: () {
               setState(() {
                 answerControllerList.elementAt(index).insert(answerIndex, TextEditingController());
                 questionMap[index]?.answerList.add(addAnswer(questionMap, index, answerIndex));
               });
             },
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
-            padding: EdgeInsets.all(0.0),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
+              padding: EdgeInsets.zero, // Entferne das interne Padding des ElevatedButton
+              primary: Colors.transparent, // Setze die Hintergrundfarbe des ElevatedButton auf transparent
+              elevation: 0, // Entferne den Schatten des ElevatedButton
+            ),
             child: Ink(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [Color(0xff34D1C2), Color(0xff4D7DDC)],

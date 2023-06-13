@@ -202,7 +202,7 @@ class _PostSurveyOverviewState extends State<PostSurveyOverview> {
                       top: 20, left: 20, right: 20, bottom: 50),
                   child: Container(
                       height: 70.0,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                           onPressed: () {
                             DatabaseService().addParticipation(user!, surveyID);
                             DatabaseService().setStartedTrue(user, surveyID);
@@ -210,8 +210,9 @@ class _PostSurveyOverviewState extends State<PostSurveyOverview> {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => const PostSurveyStart(),
                                 settings: RouteSettings(arguments: surveyID)));
                           },
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
-                          padding: EdgeInsets.all(0.0),
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.0)),
+                          ),
                           child: Ink(
                               decoration: BoxDecoration(
                                   gradient: const LinearGradient(colors: [Color(0xff34D1C2), Color(0xff4D7DDC)],
